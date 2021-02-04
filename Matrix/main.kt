@@ -33,7 +33,7 @@
  @Throws(ComplexMatrix.IncorrectSizeOfMatrix::class)
  fun testComplexMatrix()
  {
-     val a = ComplexMatrix(3, 3)
+     val a = ComplexMatrix(arrayOf(doubleArrayOf(1.0, 2.0, 3.0), doubleArrayOf(4.0, 5.0, 6.0), doubleArrayOf(7.0, 8.0, 9.0)))
      a.show()
      val b = ComplexMatrix(3, 3)
      b.show()

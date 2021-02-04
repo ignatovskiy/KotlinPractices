@@ -1,22 +1,34 @@
 import kotlin.random.Random.Default.nextDouble
 
-class ComplexMatrix(rows:Int, columns:Int)
+class ComplexMatrix
 {
     private var rows:Int = 0
     private var columns:Int = 0
-    private val matrix:Array<Array<ComplexNumber>>
+    private var matrix:Array<Array<ComplexNumber>>
 
-    init
+    constructor(rows:Int, columns: Int)
     {
         this.rows = rows
         this.columns = columns
-        this.matrix = Array(rows)
-        {
-            Array(columns)
-            {
-                ComplexNumber(nextDouble(10.0), nextDouble(10.0))
-            }
-        }
+        this.matrix = Array(this.rows)
+        { Array(this.columns){ ComplexNumber(nextDouble(10.0), nextDouble(10.0)) }}
+    }
+
+    constructor(matrix:Array<DoubleArray>)
+    {
+        this.rows = matrix.size
+        this.columns = matrix[0].size
+        this.matrix = Array(this.rows){ Array(this.columns){ComplexNumber(0.0, 0.0)}}
+        for (i in 0 until this.rows)
+            for (j in 0 until this.columns)
+                this.matrix[i][j] = (ComplexNumber(matrix[i][j], 0.0))
+    }
+
+    constructor(matrix:Array<Array<ComplexNumber>>)
+    {
+        this.rows = matrix.size
+        this.columns = matrix[0].size
+        this.matrix = matrix
     }
 
     @Throws(IncorrectSizeOfMatrix::class)
