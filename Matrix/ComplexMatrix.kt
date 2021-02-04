@@ -1,4 +1,5 @@
-import java.util.Random
+import kotlin.random.Random.Default.nextDouble
+
 class ComplexMatrix(rows:Int, columns:Int)
 {
     private var rows:Int = 0
@@ -13,7 +14,7 @@ class ComplexMatrix(rows:Int, columns:Int)
         {
             Array(columns)
             {
-                ComplexNumber(Random().nextInt(10).toDouble(), Random().nextInt(10).toDouble())
+                ComplexNumber(nextDouble(10.0), nextDouble(10.0))
             }
         }
     }

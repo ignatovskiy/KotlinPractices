@@ -1,4 +1,4 @@
-import java.util.Random
+import kotlin.random.Random.Default.nextInt
 class Matrix
 {
     private var rows:Int = 0
@@ -12,7 +12,7 @@ class Matrix
         this.matrix = Array(rows) { IntArray(columns) }
         for (i in 0 until rows)
             for (j in 0 until columns)
-                this.matrix[i][j] = Random().nextInt(10)
+                this.matrix[i][j] = nextInt(10)
     }
 
     constructor(matrix:Array<IntArray>)
